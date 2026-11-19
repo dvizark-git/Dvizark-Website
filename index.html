@@ -26,13 +26,14 @@
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
+        <button id="lang-toggle" class="lang-btn" type="button">EN</button>
     </header>
 
     <!-- SECCIÓN INICIO -->
     <section id="home">
         <img src="images/perfil.jpg" alt="David Gomez (Dvizark)">
-        <h1>Hola, soy Dvizark</h1>
-        <p>Artista de cómic,e ilustrador. ¡Bienvenido a mi página web!. 
+        <h1 data-i18n="hero_title">Hola, soy Dvizark</h1>
+        <p data-i18n="hero_subtitle">Artista de cómic,e ilustrador. ¡Bienvenido a mi página web!. 
         </>Empecé mi carrera en 2018 tomando el dibujo más enserio. En 2020 me apunte a un curso de comic, dibujo e ilustración lo que me llevo a trabajar</p>
         <div class="hero-buttons">
             <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
@@ -43,33 +44,33 @@
 
     <!-- SECCIÓN SOBRE MÍ -->
     <section id="about">
-        <h2>Sobre mí</h2>
+        <h2 data-i18n="about_heading">Sobre mí</h2>
         <div class="about-container">
             <div class="about-img">
                 <!-- Cuando tengas tu foto: <img src="images/perfil.jpg" alt="Tu Nombre"> -->
                 [Foto de perfil]
             </div>
             <div class="about-text">
-                <h3>Narrativa visual y diseño</h3>
-                <p>Escribe aquí una breve presentación sobre ti, tu enfoque artístico y las herramientas que utilizas (por ejemplo, Clip Studio Paint, Photoshop, Blender, Illustrator).</p>
-                <p>Destaca tu experiencia en narrativa secuencial, creación de mundos mediante concept art o identidad visual y diseño gráfico.</p>
+                <h3 data-i18n="about_role">Narrativa visual y diseño</h3>
+                <p data-i18n="about_p1">Escribe aquí una breve presentación sobre ti, tu enfoque artístico y las herramientas que utilizas.</p>
+                <p data-i18n="about_p2">Destaca tu experiencia en narrativa secuencial, creación de mundos mediante concept art o identidad visual y diseño gráfico.</p>
                 <br>
-                <a href="#contact" class="btn">Contactar</a>
+                <a href="#contact" class="btn" data-i18n="btn_contact">Contactar</a>
             </div>
         </div>
     </section>
 
     <!-- SECCIÓN PORTAFOLIO -->
     <section id="portfolio">
-        <h2>Portafolio</h2>
+        <<h2 data-i18n="portfolio_heading">Portafolio</h2>
 
         <!-- CATEGORÍAS PRINCIPALES -->
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterMain('all', this)">Todo</button>
-            <button class="filter-btn" onclick="filterMain('comic', this)">Cómic</button>
-            <button class="filter-btn" onclick="filterMain('illustration', this)">Ilustración</button>
-            <button class="filter-btn" onclick="filterMain('concept', this)">Concept Art</button>
-            <button class="filter-btn" onclick="filterMain('graphic', this)">Diseño Gráfico</button>
+            <button class="filter-btn active" onclick="filterMain('all', this)" data-i18n="filter_all">Todo</button>
+            <button class="filter-btn" onclick="filterMain('comic', this)" data-i18n="filter_comic">Cómic</button>
+            <button class="filter-btn" onclick="filterMain('illustration', this)" data-i18n="filter_illustration">Ilustración</button>
+            <button class="filter-btn" onclick="filterMain('concept', this)" data-i18n="filter_concept">Concept Art</button>
+            <button class="filter-btn" onclick="filterMain('graphic', this)" data-i18n="filter_graphic">Diseño Gráfico</button>
         </div>
 
         <!-- SUBCATEGORÍAS DE CONCEPT ART -->
@@ -173,9 +174,9 @@
 
     <!-- SECCIÓN CONTACTO -->
     <section id="contact">
-        <h2>Contacto</h2>
+       <h2 data-i18n="contact_heading">Contacto</h2>
         <div class="contact-container">
-            <p class="contact-intro">Disponible para proyectos, freelance, encargos y colaboraciones. Puedes escribirme o encontrarme aquí:</p>
+        <p class="contact-intro" data-i18n="contact_intro">Disponible para proyectos freelance, encargos y colaboraciones. Puedes escribirme o encontrarme aquí:</p>
 
             <div class="contact-links">
                 <a href="mailto:dvizark@gmail.com" class="contact-card">
