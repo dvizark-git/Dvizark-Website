@@ -1,541 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Art & Design Portfolio</title>
-    <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-primary: #f5f5f5;
-            --text-secondary: #a0a0a0;
-            --accent-color: #ff6b6b; /* Change this to your signature brand color */
-            --accent-hover: #ff5252;
-            --border-color: #333333;
-        }
+    <title>Tu Nombre | Portafolio de Arte y Diseño</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    <!-- Google Fonts: Space Grotesk para títulos, Plus Jakarta Sans para texto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* --- NAVIGATION --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(18, 18, 18, 0.95);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- SECTIONS GENERAL --- */
-        section {
-            padding: 6rem 10% 4rem;
-            min-height: 100vh;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 1rem;
-        }
-
-        /* --- HOME / HERO SECTION --- */
-        #home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        #home h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        #home p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 0.8rem 1.8rem;
-            border: 2px solid var(--accent-color);
-            background-color: transparent;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: #fff;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        /* --- ABOUT ME SECTION --- */
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background-color: var(--surface-color);
-            border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        /* --- PORTFOLIO SECTION --- */
-        .filter-buttons, .sub-filter-buttons {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .sub-filter-buttons {
-            padding: 1rem;
-            background-color: var(--surface-color);
-            border-radius: 8px;
-            border-left: 3px solid var(--accent-color);
-            display: none; /* Hidden until Concept Art is clicked */
-        }
-
-        .sub-filter-buttons.active {
-            display: flex;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.2rem;
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: #fff;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            background-color: var(--surface-color);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .gallery-item.hide {
-            display: none;
-        }
-
-        .art-placeholder {
-            width: 100%;
-            height: 220px;
-            background-color: #2a2a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .art-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .art-info {
-            padding: 1rem;
-        }
-
-        .art-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .art-info span {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-        }
-
-        /* --- CONTACT SECTION --- */
-        .contact-container {
-            max-width: 600px;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background-color: var(--surface-color);
-            padding: 1.2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: border-color 0.3s ease;
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent-color);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 768px) {
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-            #home h1 {
-                font-size: 2.5rem;
-            }
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- NAVIGATION BAR -->
+    <!-- BARRA DE NAVEGACIÓN -->
     <header>
-        <a href="#home" class="logo">YOUR NAME</a>
+        <a href="#home" class="logo">TU NOMBRE</a>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HOME SECTION -->
+    <!-- SECCIÓN INICIO -->
     <section id="home">
-        <h1>Hi, I'm [Your Name]</h1>
-        <p>Comic Artist, Illustrator, Concept Artist & Graphic Designer. Welcome to my creative universe.</p>
+        <h1>Hola, soy [Tu Nombre]</h1>
+        <p>Artista de cómic, ilustrador, concept artist y diseñador gráfico. Bienvenido a mi portafolio.</p>
         <div class="hero-buttons">
-            <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
-            <a href="#about" class="btn">About Me</a>
-            <a href="#contact" class="btn">Contact</a>
+            <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
+            <a href="#about" class="btn">Sobre mí</a>
+            <a href="#contact" class="btn">Contacto</a>
         </div>
     </section>
 
-    <!-- ABOUT ME SECTION -->
+    <!-- SECCIÓN SOBRE MÍ -->
     <section id="about">
-        <h2>About Me</h2>
+        <h2>Sobre mí</h2>
         <div class="about-container">
             <div class="about-img">
-                <!-- Replace this div with: <img src="images/profile.jpg" alt="Your Name" style="width:100%; height:100%; object-fit:cover; border-radius:8px;"> -->
-                [Your Photo Here]
+                <!-- Cuando tengas tu foto: <img src="images/perfil.jpg" alt="Tu Nombre"> -->
+                [Foto de perfil]
             </div>
             <div class="about-text">
-                <h3>Visual Storyteller & Designer</h3>
-                <p>Write a short introduction about yourself here. Mention your background, what inspires your work, and the tools you use (e.g., Clip Studio Paint, Photoshop, Blender, Illustrator).</p>
-                <p>Highlight your experience in sequential art, world-building through concept art, or visual communication in graphic design.</p>
+                <h3>Narrativa visual y diseño</h3>
+                <p>Escribe aquí una breve presentación sobre ti, tu enfoque artístico y las herramientas que utilizas (por ejemplo, Clip Studio Paint, Photoshop, Blender, Illustrator).</p>
+                <p>Destaca tu experiencia en narrativa secuencial, creación de mundos mediante concept art o identidad visual y diseño gráfico.</p>
                 <br>
-                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="#contact" class="btn">Contactar</a>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO SECTION -->
+    <!-- SECCIÓN PORTAFOLIO -->
     <section id="portfolio">
-        <h2>Portfolio</h2>
-        
-        <!-- MAIN CATEGORY BUTTONS -->
+        <h2>Portafolio</h2>
+
+        <!-- CATEGORÍAS PRINCIPALES -->
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterMain('all', this)">All Work</button>
-            <button class="filter-btn" onclick="filterMain('comic', this)">Comic</button>
-            <button class="filter-btn" onclick="filterMain('illustration', this)">Illustration</button>
+            <button class="filter-btn active" onclick="filterMain('all', this)">Todo</button>
+            <button class="filter-btn" onclick="filterMain('comic', this)">Cómic</button>
+            <button class="filter-btn" onclick="filterMain('illustration', this)">Ilustración</button>
             <button class="filter-btn" onclick="filterMain('concept', this)">Concept Art</button>
-            <button class="filter-btn" onclick="filterMain('graphic', this)">Graphic Design</button>
+            <button class="filter-btn" onclick="filterMain('graphic', this)">Diseño Gráfico</button>
         </div>
 
-        <!-- CONCEPT ART SUB-CATEGORY BUTTONS -->
+        <!-- SUBCATEGORÍAS DE CONCEPT ART -->
         <div id="concept-subfilters" class="sub-filter-buttons">
-            <button class="filter-btn active" onclick="filterSub('concept', this)">All Concept Art</button>
-            <button class="filter-btn" onclick="filterSub('character', this)">Character Design</button>
-            <button class="filter-btn" onclick="filterSub('environment', this)">Environment Design</button>
-            <button class="filter-btn" onclick="filterSub('creature', this)">Creature Design</button>
-            <button class="filter-btn" onclick="filterSub('prop', this)">Prop Design</button>
+            <button class="filter-btn active" onclick="filterSub('concept', this)">Todo Concept Art</button>
+            <button class="filter-btn" onclick="filterSub('character', this)">Diseño de Personajes</button>
+            <button class="filter-btn" onclick="filterSub('environment', this)">Diseño de Entornos</button>
+            <button class="filter-btn" onclick="filterSub('creature', this)">Diseño de Criaturas</button>
+            <button class="filter-btn" onclick="filterSub('prop', this)">Diseño de Props</button>
         </div>
 
-        <!-- ARTWORK GALLERY GRID -->
+        <!-- CUADRÍCULA DE OBRAS -->
         <div class="gallery-grid">
-            
-            <!-- COMIC ITEM -->
+
+            <!-- CÓMIC -->
             <div class="gallery-item" data-category="comic">
                 <div class="art-placeholder">
-                    <!-- Replace with: <img src="images/comic1.jpg" alt="Comic Page"> -->
-                    [Comic Image 1]
+                    [Obra de Cómic]
                 </div>
                 <div class="art-info">
-                    <h3>Comic Project Title</h3>
-                    <span>Comic</span>
+                    <h3>Título del Cómic</h3>
+                    <span>Cómic</span>
                 </div>
             </div>
 
-            <!-- ILLUSTRATION ITEM -->
+            <!-- ILUSTRACIÓN -->
             <div class="gallery-item" data-category="illustration">
                 <div class="art-placeholder">
-                    <!-- Replace with: <img src="images/illus1.jpg" alt="Illustration"> -->
-                    [Illustration Image 1]
+                    [Obra de Ilustración]
                 </div>
                 <div class="art-info">
-                    <h3>Illustration Title</h3>
-                    <span>Illustration</span>
+                    <h3>Título de Ilustración</h3>
+                    <span>Ilustración</span>
                 </div>
             </div>
 
-            <!-- CONCEPT ART: CHARACTER -->
+            <!-- CONCEPT ART: PERSONAJES -->
             <div class="gallery-item" data-category="concept character">
                 <div class="art-placeholder">
-                    [Character Design Image]
+                    [Diseño de Personaje]
                 </div>
                 <div class="art-info">
-                    <h3>Hero Concept Sheet</h3>
-                    <span>Concept Art • Character Design</span>
+                    <h3>Hoja de Personaje</h3>
+                    <span>Concept Art • Diseño de Personajes</span>
                 </div>
             </div>
 
-            <!-- CONCEPT ART: ENVIRONMENT -->
+            <!-- CONCEPT ART: ENTORNOS -->
             <div class="gallery-item" data-category="concept environment">
                 <div class="art-placeholder">
-                    [Environment Design Image]
+                    [Diseño de Entorno]
                 </div>
                 <div class="art-info">
-                    <h3>Ancient Ruins</h3>
-                    <span>Concept Art • Environment Design</span>
+                    <h3>Escenario / Entorno</h3>
+                    <span>Concept Art • Diseño de Entornos</span>
                 </div>
             </div>
 
-            <!-- CONCEPT ART: CREATURE -->
+            <!-- CONCEPT ART: CRIATURAS -->
             <div class="gallery-item" data-category="concept creature">
                 <div class="art-placeholder">
-                    [Creature Design Image]
+                    [Diseño de Criatura]
                 </div>
                 <div class="art-info">
-                    <h3>Forest Guardian</h3>
-                    <span>Concept Art • Creature Design</span>
+                    <h3>Diseño de Criatura</h3>
+                    <span>Concept Art • Diseño de Criaturas</span>
                 </div>
             </div>
 
-            <!-- CONCEPT ART: PROP -->
+            <!-- CONCEPT ART: PROPS -->
             <div class="gallery-item" data-category="concept prop">
                 <div class="art-placeholder">
-                    [Prop Design Image]
+                    [Diseño de Prop]
                 </div>
                 <div class="art-info">
-                    <h3>Relic Weaponry</h3>
-                    <span>Concept Art • Prop Design</span>
+                    <h3>Objeto / Prop</h3>
+                    <span>Concept Art • Diseño de Props</span>
                 </div>
             </div>
 
-            <!-- GRAPHIC DESIGN ITEM -->
+            <!-- DISEÑO GRÁFICO -->
             <div class="gallery-item" data-category="graphic">
                 <div class="art-placeholder">
-                    [Graphic Design Image]
+                    [Obra de Diseño Gráfico]
                 </div>
                 <div class="art-info">
-                    <h3>Brand Identity / Poster</h3>
-                    <span>Graphic Design</span>
+                    <h3>Identidad / Cartel</h3>
+                    <span>Diseño Gráfico</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- SECCIÓN CONTACTO -->
     <section id="contact">
-        <h2>Contact</h2>
+        <h2>Contacto</h2>
         <div class="contact-container">
-            <p style="color: var(--text-secondary);">Available for freelance work, commissions, and studio opportunities. Feel free to reach out through any of the platforms below:</p>
-            
+            <p class="contact-intro">Disponible para proyectos freelance, encargos y colaboraciones. Puedes escribirme o encontrarme aquí:</p>
+
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="contact-card">
-                    <span><strong>Email</strong></span>
-                    <span style="color: var(--accent-color);">your.email@example.com &rarr;</span>
+                <a href="mailto:tu.correo@ejemplo.com" class="contact-card">
+                    <span><strong>Correo electrónico</strong></span>
+                    <span class="contact-accent">tu.correo@ejemplo.com &rarr;</span>
                 </a>
-                <a href="https://artstation.com/yourusername" target="_blank" class="contact-card">
+                <a href="https://artstation.com/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-card">
                     <span><strong>ArtStation</strong></span>
-                    <span style="color: var(--text-secondary);">@yourusername &rarr;</span>
+                    <span class="contact-muted">@tuusuario &rarr;</span>
                 </a>
-                <a href="https://instagram.com/yourusername" target="_blank" class="contact-card">
+                <a href="https://instagram.com/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-card">
                     <span><strong>Instagram</strong></span>
-                    <span style="color: var(--text-secondary);">@yourusername &rarr;</span>
+                    <span class="contact-muted">@tuusuario &rarr;</span>
                 </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-card">
+                <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-card">
                     <span><strong>LinkedIn</strong></span>
-                    <span style="color: var(--text-secondary);">Connect &rarr;</span>
+                    <span class="contact-muted">Perfil &rarr;</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2026 [Tu Nombre]. Código bajo licencia MIT. Todos los derechos sobre las obras artísticas pertenecen a su autor.</p>
     </footer>
 
-    <!-- JAVASCRIPT FOR PORTFOLIO FILTERING -->
-    <script>
-        const items = document.querySelectorAll('.gallery-item');
-        const subFilterBar = document.getElementById('concept-subfilters');
-
-        function filterMain(category, btnElement) {
-            // Update active button state for main filters
-            const mainButtons = document.querySelectorAll('.filter-buttons .filter-btn');
-            mainButtons.forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-
-            // Show or hide Concept Art sub-filters
-            if (category === 'concept') {
-                subFilterBar.classList.add('active');
-                // Reset sub-filter buttons to 'All Concept Art'
-                const subButtons = subFilterBar.querySelectorAll('.filter-btn');
-                subButtons.forEach(btn => btn.classList.remove('active'));
-                subButtons[0].classList.add('active');
-            } else {
-                subFilterBar.classList.remove('active');
-            }
-
-            // Filter gallery items
-            items.forEach(item => {
-                const itemCategories = item.getAttribute('data-category');
-                if (category === 'all' || itemCategories.includes(category)) {
-                    item.classList.remove('hide');
-                } else {
-                    item.classList.add('hide');
-                }
-            });
-        }
-
-        function filterSub(subCategory, btnElement) {
-            // Update active button state for sub filters
-            const subButtons = subFilterBar.querySelectorAll('.filter-btn');
-            subButtons.forEach(btn => btn.classList.remove('active'));
-            btnElement.classList.add('active');
-
-            // Filter gallery items within Concept Art
-            items.forEach(item => {
-                const itemCategories = item.getAttribute('data-category');
-                if (itemCategories.includes(subCategory)) {
-                    item.classList.remove('hide');
-                } else {
-                    item.classList.add('hide');
-                }
-            });
-        }
-    </script>
+    <!-- SCRIPT DE FILTROS -->
+    <script src="js/main.js"></script>
 </body>
 </html>
