@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre | Portafolio de Arte y Diseño</title>
+    <title>DVIZARK | Portafolio de Arte y Diseño</title>
 
     <!-- Google Fonts: Space Grotesk para títulos, Plus Jakarta Sans para texto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +20,10 @@
         <a href="#home" class="logo">DVIZARK</a>
         <nav>
             <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre mí</a></li>
-                <li><a href="#portfolio">Portafolio</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#home" data-i18n="nav_home">Inicio</a></li>
+                <li><a href="#about" data-i18n="nav_about">Sobre mí</a></li>
+                <li><a href="#portfolio" data-i18n="nav_portfolio">Portafolio</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
             </ul>
         </nav>
         <button id="lang-toggle" class="lang-btn" type="button">EN</button>
@@ -31,14 +31,13 @@
 
     <!-- SECCIÓN INICIO -->
     <section id="home">
-        <img src="images/perfil.jpg" alt="David Gomez (Dvizark)">
+        <img src="images/perfil.jpg" alt="David Gomez (Dvizark)" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--accent-color);">
         <h1 data-i18n="hero_title">Hola, soy Dvizark</h1>
-        <p data-i18n="hero_subtitle">Artista de cómic,e ilustrador. ¡Bienvenido a mi página web!. 
-        </>Empecé mi carrera en 2018 tomando el dibujo más enserio. En 2020 me apunte a un curso de comic, dibujo e ilustración lo que me llevo a trabajar</p>
+        <p data-i18n="hero_subtitle">Artista de cómic e ilustrador. ¡Bienvenido a mi página web! Empecé mi carrera en 2018 tomando el dibujo más en serio. En 2020 me apunté a un curso de cómic, dibujo e ilustración, lo que me llevó a trabajar en el sector.</p>
         <div class="hero-buttons">
-            <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
-            <a href="#about" class="btn">Sobre mí</a>
-            <a href="#contact" class="btn">Contacto</a>
+            <a href="#portfolio" class="btn btn-primary" data-i18n="btn_portfolio">Ver Portafolio</a>
+            <a href="#about" class="btn" data-i18n="btn_about">Sobre mí</a>
+            <a href="#contact" class="btn" data-i18n="btn_contact">Contacto</a>
         </div>
     </section>
 
@@ -47,7 +46,7 @@
         <h2 data-i18n="about_heading">Sobre mí</h2>
         <div class="about-container">
             <div class="about-img">
-                <!-- Cuando tengas tu foto: <img src="images/perfil.jpg" alt="Tu Nombre"> -->
+                <!-- Cuando tengas tu foto: <img src="images/perfil.jpg" alt="David Gomez (Dvizark)"> -->
                 [Foto de perfil]
             </div>
             <div class="about-text">
@@ -62,7 +61,7 @@
 
     <!-- SECCIÓN PORTAFOLIO -->
     <section id="portfolio">
-        <<h2 data-i18n="portfolio_heading">Portafolio</h2>
+        <h2 data-i18n="portfolio_heading">Portafolio</h2>
 
         <!-- CATEGORÍAS PRINCIPALES -->
         <div class="filter-buttons">
@@ -75,11 +74,11 @@
 
         <!-- SUBCATEGORÍAS DE CONCEPT ART -->
         <div id="concept-subfilters" class="sub-filter-buttons">
-            <button class="filter-btn active" onclick="filterSub('concept', this)">Todo Concept Art</button>
-            <button class="filter-btn" onclick="filterSub('character', this)">Diseño de Personajes</button>
-            <button class="filter-btn" onclick="filterSub('environment', this)">Diseño de Entornos</button>
-            <button class="filter-btn" onclick="filterSub('creature', this)">Diseño de Criaturas</button>
-            <button class="filter-btn" onclick="filterSub('prop', this)">Diseño de Props</button>
+            <button class="filter-btn active" onclick="filterSub('concept', this)" data-i18n="sub_all">Todo Concept Art</button>
+            <button class="filter-btn" onclick="filterSub('character', this)" data-i18n="sub_character">Diseño de Personajes</button>
+            <button class="filter-btn" onclick="filterSub('environment', this)" data-i18n="sub_environment">Diseño de Entornos</button>
+            <button class="filter-btn" onclick="filterSub('creature', this)" data-i18n="sub_creature">Diseño de Criaturas</button>
+            <button class="filter-btn" onclick="filterSub('prop', this)" data-i18n="sub_prop">Diseño de Props</button>
         </div>
 
         <!-- CUADRÍCULA DE OBRAS -->
@@ -87,11 +86,11 @@
 
             <!-- CÓMIC -->
             <div class="gallery-item" data-category="comic">
-                <div class="art-placeholder()">
+                <div class="art-placeholder">
+                    <!-- Cuando tengas tu Cómic: <img src="images/your-art.jpg" alt="Title"> -->
                     [Obra de Cómic]
                 </div>
                 <div class="art-info">
-                     <!-- Cuando tengas tu Cómic: <img src="images/your-art.jpg" alt="Title"> -->
                     <h3>Título del Cómic</h3>
                     <span>Cómic</span>
                 </div>
@@ -100,7 +99,7 @@
             <!-- ILUSTRACIÓN -->
             <div class="gallery-item" data-category="illustration">
                 <div class="art-placeholder">
-                     <!-- Cuando tengas tu Ilustración: <img src="images/your-art.jpg" alt="Title"> -->
+                    <!-- Cuando tengas tu Ilustración: <img src="images/your-art.jpg" alt="Title"> -->
                     [Obra de Ilustración]
                 </div>
                 <div class="art-info">
@@ -112,7 +111,7 @@
             <!-- CONCEPT ART: PERSONAJES -->
             <div class="gallery-item" data-category="concept character">
                 <div class="art-placeholder">
-                     <!-- Cuando tengas tu Personaje: <img src="images/your-art.jpg" alt="Title"> -->
+                    <!-- Cuando tengas tu Personaje: <img src="images/your-art.jpg" alt="Title"> -->
                     [Diseño de Personaje]
                 </div>
                 <div class="art-info">
@@ -124,7 +123,7 @@
             <!-- CONCEPT ART: ENTORNOS -->
             <div class="gallery-item" data-category="concept environment">
                 <div class="art-placeholder">
-                         <!-- Cuando tengas tu Entorno: <img src="images/your-art.jpg" alt="Title"> -->
+                    <!-- Cuando tengas tu Entorno: <img src="images/your-art.jpg" alt="Title"> -->
                     [Diseño de Entorno]
                 </div>
                 <div class="art-info">
@@ -136,7 +135,7 @@
             <!-- CONCEPT ART: CRIATURAS -->
             <div class="gallery-item" data-category="concept creature">
                 <div class="art-placeholder">
-                       <!-- Cuando tengas tu Criatura: <img src="images/your-art.jpg" alt="Title"> -->
+                    <!-- Cuando tengas tu Criatura: <img src="images/your-art.jpg" alt="Title"> -->
                     [Diseño de Criatura]
                 </div>
                 <div class="art-info">
@@ -148,7 +147,7 @@
             <!-- CONCEPT ART: PROPS -->
             <div class="gallery-item" data-category="concept prop">
                 <div class="art-placeholder">
-                       <!-- Cuando tengas tu Prop: <img src="images/your-art.jpg" alt="Title"> -->
+                    <!-- Cuando tengas tu Prop: <img src="images/your-art.jpg" alt="Title"> -->
                     [Diseño de Prop]
                 </div>
                 <div class="art-info">
@@ -160,7 +159,7 @@
             <!-- DISEÑO GRÁFICO -->
             <div class="gallery-item" data-category="graphic">
                 <div class="art-placeholder">
-                     <!-- Cuando tengas tu Diseño Gráfico: <img src="images/your-art.jpg" alt="Title"> -->
+                    <!-- Cuando tengas tu Diseño Gráfico: <img src="images/your-art.jpg" alt="Title"> -->
                     [Obra de Diseño Gráfico]
                 </div>
                 <div class="art-info">
@@ -174,14 +173,14 @@
 
     <!-- SECCIÓN CONTACTO -->
     <section id="contact">
-       <h2 data-i18n="contact_heading">Contacto</h2>
+        <h2 data-i18n="contact_heading">Contacto</h2>
         <div class="contact-container">
-        <p class="contact-intro" data-i18n="contact_intro">Disponible para proyectos freelance, encargos y colaboraciones. Puedes escribirme o encontrarme aquí:</p>
+            <p class="contact-intro" data-i18n="contact_intro">Disponible para proyectos freelance, encargos y colaboraciones. Puedes escribirme o encontrarme aquí:</p>
 
             <div class="contact-links">
                 <a href="mailto:dvizark@gmail.com" class="contact-card">
-                    <span><strong>Correo electrónico</strong></span>
-                    <span class="contact-accent">tu.correo@ejemplo.com &rarr;</span>
+                    <span><strong data-i18n="contact_email">Correo electrónico</strong></span>
+                    <span class="contact-accent">dvizark@gmail.com &rarr;</span>
                 </a>
                 <a href="https://www.deviantart.com/dvizark" target="_blank" rel="noopener noreferrer" class="contact-card">
                     <span><strong>DeviantArt</strong></span>
@@ -193,7 +192,7 @@
                 </a>
                 <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer" class="contact-card">
                     <span><strong>LinkedIn</strong></span>
-                    <span class="contact-muted">Perfil &rarr;</span>
+                    <span class="contact-muted" data-i18n="contact_profile">Perfil &rarr;</span>
                 </a>
             </div>
         </div>
@@ -201,10 +200,10 @@
 
     <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 Dvizark. Código bajo licencia MIT. Todos los derechos sobre las obras artísticas pertenecen a su autor.</p>
+        <p data-i18n="footer_text">&copy; 2026 Dvizark. Código bajo licencia MIT. Todos los derechos sobre las obras artísticas pertenecen a su autor.</p>
     </footer>
 
-    <!-- SCRIPT DE FILTROS -->
-    <script src="js/main.js"></script>
+    <!-- SCRIPT DE FILTROS E IDIOMA -->
+    <script src="js/main.js" defer></script>
 </body>
 </html>
